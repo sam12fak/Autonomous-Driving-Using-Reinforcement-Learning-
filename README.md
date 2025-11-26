@@ -10,6 +10,8 @@
 
 This project implements a self-driving car simulation where an agent learns to navigate a track using Deep Q-Learning. The car perceives its environment through sensors and learns to avoid obstacles and stay on the road. The simulation is built with Pygame for visualization and PyTorch for the neural network backend.
 
+![Simulation Output](assets/output_screenshot.png)
+
 ## Features
 
 - **Deep Q-Learning Agent**: Uses a neural network to approximate the Q-value function.
