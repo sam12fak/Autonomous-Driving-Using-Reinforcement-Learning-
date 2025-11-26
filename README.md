@@ -1,100 +1,182 @@
-# RL Car Simulation
+# 🚗 **RL Car Simulation**
 
-> A Reinforcement Learning based autonomous car simulation using Deep Q-Networks (DQN) and Pygame.
+### *A Reinforcement Learning-based Autonomous Driving Simulation using Deep Q-Networks (DQN) and PyGame*
 
-![Python](https://img.shields.io/badge/python-3.8%2B-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
-![Status](https://img.shields.io/badge/status-active-success)
+---
 
-## Overview
+## 🧠 **Overview**
 
-This project implements a self-driving car simulation where an agent learns to navigate a track using Deep Q-Learning. The car perceives its environment through sensors and learns to avoid obstacles and stay on the road. The simulation is built with Pygame for visualization and PyTorch for the neural network backend.
+This project demonstrates an **autonomous driving simulation** powered by **Deep Q-Learning (DQN)**, where a virtual car learns to navigate complex tracks, avoid collisions, and optimize driving efficiency — **all through experience**.
+
+The agent perceives its surroundings using simulated **distance sensors**, processes observations through a **neural network**, and takes optimal driving actions based on learned Q-values.
+Built with **PyGame** for visualization 🎮 and **PyTorch** for the deep learning backend 🔥, the project provides a seamless integration of AI learning and interactive simulation.
 
 ![Simulation Output](assets/output_screenshot.png)
 
-## Features
+---
 
-- **Deep Q-Learning Agent**: Uses a neural network to approximate the Q-value function.
-- **Custom Map Builder**: Create and save your own tracks.
-- **Real-time Visualization**: Watch the car learn and improve over time.
-- **Performance Metrics**: Track loss and reward progression during training.
-- **Save/Load Models**: Persist trained models and resume training or run inference.
+## ⚙️ **Key Features**
 
-## Project Structure
+✅ **Deep Q-Learning Agent:**
+Trains a neural network to approximate the Q-value function for intelligent driving decisions.
 
-```
+🗺️ **Custom Map Builder:**
+Design and save your own driving tracks.
+
+🎥 **Real-time Visualization:**
+Observe the car as it learns to drive smarter over time.
+
+📊 **Performance Tracking:**
+Monitor **reward curves**, **loss curves**, and training progress with detailed logs.
+
+💾 **Save & Load Models:**
+Easily persist and reload trained models for evaluation or further training.
+
+---
+
+## 🧩 **Project Structure**
+
+```bash
 .
-├── assets/             # Images and graphs
-├── saved_maps/         # User-created maps
-├── saved_models/       # Trained models and logs
+├── assets/             # Images, visualizations, and training graphs
+├── saved_maps/         # User-created maps and tracks
+├── saved_models/       # Trained models, checkpoints, and logs
 ├── src/
-│   ├── App/            # Game logic and simulation
-│   ├── MachineLearning/# DQN implementation
-│   └── Utils/          # Helper functions and settings
-├── main.py             # Entry point
-└── requirements.txt    # Dependencies
+│   ├── App/            # Core simulation and control logic
+│   ├── MachineLearning/# DQN architecture and agent logic
+│   └── Utils/          # Helper functions, constants, and global settings
+├── main.py             # Entry point for simulation and training
+└── requirements.txt    # Python dependencies
 ```
 
-## Installation
+---
 
-1.  **Clone the repository:**
-    ```bash
-    git clone [REPO_URL]
-    cd [REPO_NAME]
-    ```
+## 🚀 **Installation**
 
-2.  **Create a virtual environment (optional but recommended):**
-    ```bash
-    python -m venv venv
-    # Windows
-    venv\Scripts\activate
-    # macOS/Linux
-    source venv/bin/activate
-    ```
+### 🧾 Clone the Repository
 
-3.  **Install dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
+```bash
+git clone https://github.com/sam12fak/Autonomous-Driving-Using-Reinforcement-Learning-.git
+cd Autonomous-Driving-Using-Reinforcement-Learning-
+```
 
-## Usage
+### 🧱 Create a Virtual Environment (Recommended)
 
-**Run the simulation (GUI mode):**
+```bash
+python -m venv venv
+# Windows
+venv\Scripts\activate
+# macOS/Linux
+source venv/bin/activate
+```
+
+### 📦 Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 🏁 **Usage**
+
+### ▶️ Run the Simulation (GUI Mode)
+
 ```bash
 python main.py
 ```
 
-**Run in background (training mode):**
+### ⚡ Train in Background (Headless Mode)
+
 ```bash
 python main.py --background --map "SanFrancisco" --min-epsilon
 ```
 
-**Arguments:**
-- `--background`: Run without rendering the window (faster training).
-- `--map [MAP_NAME]`: Load a specific map directly.
-- `--min-epsilon`: Stop training when the exploration rate reaches its minimum.
-- `--verbose [0-3]`: Set verbosity level.
+### 🧠 Arguments
 
-## Examples & Results
+| Argument           | Description                                          |
+| ------------------ | ---------------------------------------------------- |
+| `--background`     | Runs without rendering for faster training           |
+| `--map [MAP_NAME]` | Loads a specific track                               |
+| `--min-epsilon`    | Stops training when exploration rate reaches minimum |
+| `--verbose [0-3]`  | Sets verbosity level for logging                     |
 
-### Training Progress
+---
+
+## 📈 **Examples & Results**
+
+### 🏎️ Training Progress
+
+The car starts with random movements and gradually learns to stay on the road, avoid obstacles, and maximize cumulative rewards.
 
 **Loss Curve:**
+Shows the reduction in Q-value prediction error over time.
+
 ![Loss Curve](assets/loss_curve.png)
 
 **Reward Curve:**
+Displays increasing stability and reward gains as the agent converges.
+
 ![Reward Curve](assets/rewards_curve.png)
 
-## Configuration
+🖼️ *Visual outputs and graphs can be found in the `assets/` directory.*
 
-Settings can be adjusted in `src/Utils/global_settings.py`. Key parameters include:
-- `WIDTH`, `HEIGHT`: Window dimensions.
-- `Q_LEARNING_SETTINGS`: Hyperparameters for the DQN agent (learning rate, gamma, epsilon decay, etc.).
+---
 
-## Contributing
+## ⚙️ **Configuration**
 
-Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
+Adjust core simulation and learning parameters in:
+📂 `src/Utils/global_settings.py`
 
-## License
+**Key Parameters:**
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+* `WIDTH`, `HEIGHT`: Simulation window dimensions
+* `Q_LEARNING_SETTINGS`: Contains hyperparameters such as:
+
+  * Learning rate (α)
+  * Discount factor (γ)
+  * Epsilon decay schedule
+  * Replay buffer size
+  * Target update frequency
+
+---
+
+## 🧪 **Technical Highlights**
+
+* Implementation of **Deep Q-Network (DQN)** using PyTorch
+* Experience replay and target network stabilization
+* Custom reward functions for lane-following and collision avoidance
+* Modular and scalable simulation design
+* Compatible with any custom map generated in PyGame
+
+---
+
+## 🤝 **Contributing**
+
+Contributions are highly encouraged!
+
+* Fork the repo
+* Create a feature branch
+* Commit your changes
+* Open a pull request
+
+Issues, feature requests, or performance improvements are welcome!
+
+---
+
+## 📜 **License**
+
+This project is licensed under the **MIT License** — see the [LICENSE](./LICENSE) file for details.
+
+---
+
+## 🧭 **Future Enhancements**
+
+🔹 Integration with **Double DQN / Dueling DQN** for improved stability
+🔹 Addition of **continuous control (DDPG / PPO)**
+🔹 Implementation of **traffic and pedestrian agents**
+🔹 Visualization dashboard for training analytics
+
+---
+
+### 🌟 *“Teaching cars to drive — one reward at a time.”*
